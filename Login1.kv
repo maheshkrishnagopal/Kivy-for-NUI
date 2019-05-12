@@ -1,0 +1,58 @@
+ScreenManagement:
+    LoginPage:
+    UserPage:
+
+<LoginPage>:
+    BoxLayout:
+        id: login_layout
+        orientation: 'vertical'
+        #padding: [10,50,10,50]
+        spacing: 30
+
+        Label:
+            text: 'Welcome to Isilon !!!'
+            font_size: 30
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'Username'
+                font_size: 18
+                halign: 'left'
+                text_size: root.width-20, 20
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 18
+                hint_text: 'Please provide the NT id username'
+                size_hint_y: 0.5
+                size_hint_x: 0.5
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Password'
+                halign: 'left'
+                font_size: 18
+                text_size: root.width-20, 20
+
+            TextInput:
+                id: password
+                multiline:False
+                password:True
+                font_size: 18
+                size_hint_y: 0.5
+                size_hint_x: 0.5
+                hint_text: 'Please provide the NT id password'
+                text: '%s, %s' % (self.get_center_x(), self.get_center_y())
+
+        Button:
+            text: 'Login'
+            font_size: 24
+            pos_hint: {'right': 0.5,'center_y': 3}
+            size_hint: (0.2,0.2)
+            #pos: (1,1)
+
+            on_release: root.do_login(login.text, password.text)

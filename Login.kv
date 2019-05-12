@@ -1,0 +1,29 @@
+ScreenManagement:
+    LoginPage:
+    UserPage:
+
+<LoginPage>:
+    name: "login_page"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+        TextInput:
+            size_hint: (.2, 1)
+            id: login
+            height: self.minimum_height
+            multiline: False
+        TextInput:
+            id: passw
+            height: self.minimum_height
+            multiline: False
+            password: True # hide password
+        BoxLayout:
+            Button:
+                text: "Login"
+                on_release: root.verify_credentials()
+
+<UserPage>:
+    name: "user"
+    Button:
+        text: "back"
